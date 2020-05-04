@@ -248,6 +248,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/Keras-rl%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hanke Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/owl.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hanke 的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/02/Keras-rl%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" itemprop="url">Keras-rl使用方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T16:08:18+08:00">
+                2017-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Kreas-rl"><a href="#Kreas-rl" class="headerlink" title="Kreas-rl"></a>Kreas-rl</h2><p>这一周看了一下 <em>Keras-rl</em> 这个库。 <em>Keras-rl</em> 的作者是一个KIT的研究生。在github上的star数已经超过了1.9k。<em>Keras-rl</em> 是基于 <em>Keras</em> 实现的一个深度强化学习框架，目前已经实现了包括</p>
+<ul>
+<li>DQN</li>
+<li>Double DQN</li>
+<li>DDPG</li>
+<li>CEM</li>
+<li>Deep SARSA</li>
+<li>Dueling DQN</li>
+<li>NAF</li>
+</ul>
+<p>等算法，并且做了很好的封装。</p>
+<p>其实，几个月之前我就饿接触到了这个框架，但是毕竟这个框架由个人开发，目前还没有非常完整的文档，我们只能依靠阅读源代码，还有参考官方Examples来学习这个框架。</p>
+<h3 id="安装Keras-rl"><a href="#安装Keras-rl" class="headerlink" title="安装Keras-rl"></a>安装Keras-rl</h3><p>我们首先来看Keras-rl的安装：<br>我们可以通过pip来安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install keras-rl</span><br></pre></td></tr></table></figure>
+<p>也可以下载源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;matthiasplappert&#x2F;keras-rl.git</span><br><span class="line">cd keras-rl</span><br><span class="line">python setup install</span><br></pre></td></tr></table></figure>
+
+<p>安装好了我们可以运行一下keras-rl提供的一个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python example&#x2F;dqn_cartpole.py</span><br></pre></td></tr></table></figure>
+
+<h3 id="框架入门"><a href="#框架入门" class="headerlink" title="框架入门"></a>框架入门</h3><p>下面是一个非常简单的DQN用法实例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> gym</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense, Activation, Flatten</span><br><span class="line"><span class="keyword">from</span> keras.optimizers <span class="keyword">import</span> Adam</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> rl.agents.dqn <span class="keyword">import</span> DQNAgent</span><br><span class="line"><span class="keyword">from</span> rl.policy <span class="keyword">import</span> BoltzmannQPolicy</span><br><span class="line"><span class="keyword">from</span> rl.memory <span class="keyword">import</span> SequentialMemory</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ENV_NAME = <span class="string">'CartPole-v0'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建gym测试环境</span></span><br><span class="line">env = gym.make(ENV_NAME)</span><br><span class="line">np.random.seed(<span class="number">123</span>)</span><br><span class="line">env.seed(<span class="number">123</span>)</span><br><span class="line">nb_actions = env.action_space.n</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用keras来创建一个神经网络的实例，用来做我们的QNetwork</span></span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(Flatten(input_shape=(<span class="number">1</span>,) + env.observation_space.shape))</span><br><span class="line">model.add(Dense(<span class="number">16</span>))</span><br><span class="line">model.add(Activation(<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(<span class="number">16</span>))</span><br><span class="line">model.add(Activation(<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(<span class="number">16</span>))</span><br><span class="line">model.add(Activation(<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(nb_actions))</span><br><span class="line">model.add(Activation(<span class="string">'linear'</span>))</span><br><span class="line">print(model.summary())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接下来我们要创建一个Q学习的记忆库，并创建一个Q学习的策略实例</span></span><br><span class="line">memory = SequentialMemory(limit=<span class="number">50000</span>, window_length=<span class="number">1</span>)</span><br><span class="line">policy = BoltzmannQPolicy()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 好了，现在可以创建一个DQNAgent</span></span><br><span class="line">dqn = DQNAgent(model=model, nb_actions=nb_actions, memory=memory, nb_steps_warmup=<span class="number">10</span>,</span><br><span class="line">               target_model_update=<span class="number">1e-2</span>, policy=policy)</span><br><span class="line">dqn.compile(Adam(lr=<span class="number">1e-3</span>), metrics=[<span class="string">'mae'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接下来就可以让我们的DQNAgent去学习该如何行动，可以用 Ctrl + C.停止掉训练，停止训练并不会停止成程序进行</span></span><br><span class="line">dqn.fit(env, nb_steps=<span class="number">50000</span>, visualize=<span class="literal">True</span>, verbose=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练结束后可以保存模型</span></span><br><span class="line">dqn.save_weights(<span class="string">'dqn_&#123;&#125;_weights.h5f'</span>.format(ENV_NAME), overwrite=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以进行测试了</span></span><br><span class="line">dqn.test(env, nb_episodes=<span class="number">5</span>, visualize=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果你对Keras很了解的话，那么你一定会对这个框架感到眼熟。没错，Keras-rl对Kera进行了非常好的匹配和封装。</p>
+<p>可是问题来了，我们是不是只能向Agent传入gym的环境呢？答案当然不是！</p>
+<h3 id="构建自己的环境"><a href="#构建自己的环境" class="headerlink" title="构建自己的环境"></a>构建自己的环境</h3><p>我们可以去查阅一下keras-rl和gym的源码，其实keras-rl在这里要在<code>fit()</code>做的事情，只是调用了gym环境中的几个函数，我们只需要构建一个自己的环境类，并且实现相应的函数就可以了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">my_env</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n)</span>:</span></span><br><span class="line">    <span class="string">'''initialize your env'''</span></span><br><span class="line">		self.action_space = []</span><br><span class="line">		self.n = <span class="number">3</span></span><br><span class="line">		self.obeservation = np.zeros(self.n)</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">reset</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="string">'''reset the env'''</span></span><br><span class="line">    observation = ...</span><br><span class="line">		<span class="keyword">return</span> observation</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">step</span><span class="params">(self, action)</span>:</span></span><br><span class="line">		obeservation, reward, done, info = f(action)</span><br><span class="line">    <span class="string">''' f is a func to get execute your actino and get next state , reward, and whether it is done or not '''</span></span><br><span class="line">		<span class="keyword">return</span> obeservation, reward, done, info</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(mode)</span>:</span></span><br><span class="line">    <span class="string">'''show your result in some way'''</span></span><br><span class="line">		<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>这样一来就可以结合Keras-rl在我们自己的环境上训练我们自己的Agent拉解决实际问题了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/27/JAVA-MYSQL-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -758,7 +905,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -780,7 +927,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
