@@ -423,6 +423,268 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/Mac-%E9%87%8D%E5%BB%BA%E7%B4%A2%E5%BC%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hanke Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/owl.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hanke 的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/01/Mac-%E9%87%8D%E5%BB%BA%E7%B4%A2%E5%BC%95/" itemprop="url">Mac 重建索引</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-01T14:52:33+08:00">
+                2019-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>很久以前发现我的系统里经常出现<code>md_worker</code>进程，占用大量资源并且导致发热而且没办法kill。发现是因为<code>mdworker</code>是Spotlight建立索引的进程，当时关掉了索引。</p>
+<p>最近发现alfred和Spotlight都不能打开文件，原来是没有索引的原因。于是重新开启索引问题解决。</p>
+<p>关于索引的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mdutil -i off /        <span class="comment">#关闭索引</span></span><br><span class="line">sudo mdutil -i E /          <span class="comment">#删除索引</span></span><br><span class="line">sudo mdutil -i on /         <span class="comment">#重建索引</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/%E9%80%92%E5%A2%9E%E7%9A%84%E4%B8%89%E5%85%83%E5%AD%90%E5%BA%8F%E5%88%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hanke Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/owl.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hanke 的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/23/%E9%80%92%E5%A2%9E%E7%9A%84%E4%B8%89%E5%85%83%E5%AD%90%E5%BA%8F%E5%88%97/" itemprop="url">递增的三元子序列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-23T10:23:18+08:00">
+                2019-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="递增的三元子序列"><a href="#递增的三元子序列" class="headerlink" title="递增的三元子序列"></a>递增的三元子序列</h2><p>Given an unsorted array return whether an increasing subsequence of length 3 exists or not in the array.</p>
+<p>Formally the function should:</p>
+<pre><code>Return true if there exists i, j, k 
+such that arr[i] &lt; arr[j] &lt; arr[k] given 0 ≤ i &lt; j &lt; k ≤ n-1 else return false.</code></pre><p><strong>Note</strong>: Your algorithm should run in O(n) time complexity and O(1) space complexity.</p>
+<p><strong>Example</strong> 1:</p>
+<pre><code>Input: [1,2,3,4,5]
+Output: true</code></pre><p><strong>Example</strong> 2:</p>
+<pre><code>Input: [5,4,3,2,1]
+Output: false</code></pre><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>对于这道题来说，很容易想到的是可以通过一个三重循环遍历来实现。但是这样做太慢。</p>
+<p>另一个容易想到的思路是，使用两个指针，分别从前往后找最小和从后往前找最大。这样，只要最大值比最小值靠后则一定是存在递增三元序列的。</p>
+<p><strong>这样的方法是不行的</strong></p>
+<p>乍一想貌似正确，但是仔细想想，递增三元组并不要求一定是由整个数组的最大值和最小值组成的。例如：</p>
+<pre><code>2, 4, -5, -3, -2, 2, 0</code></pre><p>整个数组的最大值是<code>4</code>，最小值是<code>-5</code>，<code>4</code>位于<code>-5</code>之前，但是却存在递增三元组 <code>-5, -3, -2</code>。</p>
+<h4 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h4><p>如果从动态规划的角度来考虑这个问题，如果我找到了三元组中的中间的数，那么只要在剩余的数组中存在比中间数更大的数就必然存在三元组了。</p>
+<p>那什么叫做找到了中间的数呢，其实就是找到了次小的数。也就是说我们只需要记录最小和次小的两个数就可以了。在实现过的过程中，遍历数组根据大小关系更新最小和次小的数字：</p>
+<ul>
+<li>如果当前数字小于最小的数，则把最小的数更新为当前数。</li>
+<li>如果大于最小，小于次小，更新次小。</li>
+<li>如果大于次小，则返回<code>true</code>。</li>
+</ul>
+<p>动态规划方法往往会在所记录的数字中包含更多的信息，在本题中，次小数不仅仅是当前遍历过的这一部分数组中第二小的数，同时还隐含了在这个数之前，存在一个比他小的数。因此只要有比他大的数字，就存在递增三元组。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">increasingTriplet</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.<span class="built_in">size</span>() &lt; <span class="number">3</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> <span class="built_in">min</span> = INT_MAX;</span><br><span class="line">        <span class="keyword">int</span> middle = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">min</span> &gt;= nums[i]) &#123;</span><br><span class="line">                <span class="built_in">min</span> = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[i] &lt;= middle) &#123;</span><br><span class="line">                middle = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/Opensim-rl-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -709,329 +971,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/27/JAVA-MYSQL-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hanke Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/owl.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hanke 的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/27/JAVA-MYSQL-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3/" itemprop="url">JAVA MYSQL 中文乱码解决</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T16:19:54+08:00">
-                2017-11-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">编程语言学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="令人头疼的问题"><a href="#令人头疼的问题" class="headerlink" title="令人头疼的问题"></a>令人头疼的问题</h2><p>今天在写Java项目的时候，再次遇到了向Mysql写如中文出现乱码的问题。纠结了一个多小时，总算解决了。<br>可能出现乱码的原因有以下几种：</p>
-<h3 id="MySQL的默认编码是latin1"><a href="#MySQL的默认编码是latin1" class="headerlink" title="MySQL的默认编码是latin1"></a>MySQL的默认编码是latin1</h3><p>针对这个问题需要修改MySQL的默认的编码，在Win下可以通过修改 <em>my.ini</em> 文件来设置。在Mac下没有找到这个文件，我们可以使用 <em>[这篇博客]</em> 的方法来创建一个MySQL的配置文件。或者我们可以通过MySQL命令来设置。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SET character_set_client = utf8 ;  </span><br><span class="line">mysql&gt; SET character_set_connection = utf8 ;   </span><br><span class="line">mysql&gt; SET character_set_database = utf8 ;   </span><br><span class="line">mysql&gt; SET character_set_results = utf8 ;    </span><br><span class="line">mysql&gt; SET character_set_server = utf8 ;   </span><br><span class="line"></span><br><span class="line">mysql&gt; SET collation_connection = utf8 ;  </span><br><span class="line">mysql&gt; SET collation_database = utf8 ;   </span><br><span class="line">mysql&gt; SET collation_server = utf8 ;</span><br></pre></td></tr></table></figure>
-
-<p>设置之后我们来看</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like "character%";</span><br><span class="line">+<span class="comment">--------------------------+-----------------------------------------------------------+</span></span><br><span class="line">| Variable_name            | Value                                                     |</span><br><span class="line">+<span class="comment">--------------------------+-----------------------------------------------------------+</span></span><br><span class="line">| character_set_client     | utf8                                                      |</span><br><span class="line">| character_set_connection | utf8                                                      |</span><br><span class="line">| character_set_database   | utf8                                                    |</span><br><span class="line">| character_set_filesystem | binary                                                    |</span><br><span class="line">| character_set_results    | utf8                                                      |</span><br><span class="line">| character_set_server     | utf8                                                    |</span><br><span class="line">| character_set_system     | utf8                                                      |</span><br><span class="line">| character_sets_dir       | /usr/local/mysql-5.7.18-macos10.12-x86_64/share/charsets/ |</span><br><span class="line">+<span class="comment">--------------------------+-----------------------------------------------------------+</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="奇怪的是设置了编码之后仍然有问题"><a href="#奇怪的是设置了编码之后仍然有问题" class="headerlink" title="奇怪的是设置了编码之后仍然有问题"></a>奇怪的是设置了编码之后仍然有问题</h3><p>那就是可能出在了连接层<br>我们在连接数据库的时候需要在连接url上加上一句话</p>
-<blockquote>
-<p>useUnicode=true&amp;characterEncoding=utf-8</p>
-</blockquote>
-<p>就像这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;test?useUnicode&#x3D;true&amp;characterEncoding&#x3D;utf-8</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="要吐血了"><a href="#要吐血了" class="headerlink" title="要吐血了"></a>要吐血了</h3><p>还是不行。<br>找了好多办法，最后发现，应该在建立数据表的时候，设置表的默认字符集。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Stu_Make_up`</span> (</span><br><span class="line">  <span class="string">`Stu_Id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`Stu_Name`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`Stu_Subject`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`Exam_Date`</span> <span class="built_in">varchar</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`Stu_Id`</span>,<span class="string">`Exam_Date`</span>)</span><br><span class="line">) <span class="keyword">charset</span> utf8 <span class="keyword">collate</span> utf8_general_ci</span><br></pre></td></tr></table></figure>
-
-<p>就是这句话：</p>
-<blockquote>
-<p>charset utf8 collate utf8_general_ci</p>
-</blockquote>
-<p>浪费青春！！！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/11/Node-js-%E5%88%9D%E6%8E%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hanke Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/owl.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hanke 的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/11/Node-js-%E5%88%9D%E6%8E%A2/" itemprop="url">Node.js 初探</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-11T17:09:21+08:00">
-                2017-11-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node-js-%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">Node.js 开发笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="我的博客"><a href="#我的博客" class="headerlink" title="我的博客"></a>我的博客</h3><p>这一周，为了完成我的网络课程设计，我熬了两个晚上，制作了一个简单的基于<code>Node.js</code> 和 <code>MongoDB</code>的博客，算是比年初自己写的哪一个稍微进步了一点，下面来简单介绍一下我的这个博客的搭建过程。</p>
-<p>首先来看一下我的博客首页</p>
-<p><img src="http://p0kkk1x7s.bkt.clouddn.com/17-12-8/87121324.jpg" alt="图片描述"></p>
-<h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h3><p>我的博客使用的是<code>Express</code>框架<br>首先我们来创建一个<code>Express</code> 应用</p>
-<pre><code>express -e blog --view=hbs</code></pre><p>这里我们选择了<code>Handlebars</code>作为我们的模版引擎，<code>Handlebars</code>是全球使用率最高的模板引擎,所以当之无愧是全球最受欢迎的模板引擎。之前我使用的是<code>jade</code>模版，对比了<code>jade</code>和<code>ejs</code>还有这次使用的<code>Handlebars</code>，我发现<code>jade</code>语法太过奇怪，不像是我们常见的开发用语，<code>ejs</code>有几乎是纯粹的<code>html</code>的语法又不支持继承。所以最后还是选择了<code>Handlebars</code>。</p>
-<h3 id="前端页面"><a href="#前端页面" class="headerlink" title="前端页面"></a>前端页面</h3><p>页面使用了<code>Boostrap</code>框架。深感<code>Boostrap</code>的强大，以后还是要深入的学习一下。同时在生成前端页面的时候，我使用了<code>Handlebars</code>，用来实现组件循环渲染</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;#each posts&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tm-content-box flex-2-col"</span> <span class="attr">id</span>=<span class="string">"blog-&#123;&#123;post_id&#125;&#125;"</span>&gt;</span></span><br><span class="line">   something</span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">&#123;&#123;/each&#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里 <code>each</code>是<code>Handlebars</code>定义好的 <code>helpler</code> 就像是我们在<code>JSP</code>中的<code>c: foreach</code>，后端渲染时只需将<code>post</code>变量设置好即可。</p>
-<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><p>这一次采用了<code>MongoDB</code>, <code>MongoDB</code> 是一个从 <em>NoSQL</em> 的数据库，数据以<code>json</code>文档的形式来进行存储，这样的方式让开发人员不必掌握复杂的<code>SQL</code>语句，就可以轻松的实现数据库操作。在<code>Express</code>中我们通常使用的是<code>Mongoose</code>来驱动我们的数据库</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span><br><span class="line"><span class="comment">// var Schema = mongoose.Schema;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">db_user: <span class="string">""</span>,</span><br><span class="line">db_pwd: <span class="string">""</span>,</span><br><span class="line">db_host: <span class="string">"localhost"</span>,</span><br><span class="line">db_port: <span class="number">27017</span>,</span><br><span class="line">db_name: <span class="string">"blog_post"</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dbURL = <span class="string">"mongodb://"</span> + options.db_user + <span class="string">":"</span> + options.db_pwd + <span class="string">"@"</span> + options.db_host + <span class="string">":"</span> + options.db_port + <span class="string">"/"</span> + options.db_name;</span><br><span class="line"></span><br><span class="line">mongoose.connect(dbURL);</span><br><span class="line"><span class="keyword">const</span> db = mongoose.connection;</span><br><span class="line"></span><br><span class="line">db.on(<span class="string">'error'</span>, <span class="built_in">console</span>.error.bind(<span class="built_in">console</span>, <span class="string">'connection error:'</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = db;</span><br></pre></td></tr></table></figure>
-<p>这样就可以建立数据库的连接</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> db = <span class="built_in">require</span>(<span class="string">'../modules/connenction'</span>);</span><br><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span><br><span class="line"><span class="keyword">var</span> Schema = mongoose.Schema;</span><br><span class="line"></span><br><span class="line">db.on(<span class="string">'error'</span>, <span class="built_in">console</span>.error.bind(<span class="built_in">console</span>, <span class="string">'connection error:'</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> PostSchema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">    post_id: <span class="built_in">Number</span>,</span><br><span class="line">    post_title: <span class="built_in">String</span>,</span><br><span class="line">    post_profile: <span class="built_in">String</span>,</span><br><span class="line">    post_date: <span class="built_in">String</span>,</span><br><span class="line">    post_addr: <span class="built_in">String</span>,</span><br><span class="line">    post_thumbs: <span class="built_in">Number</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> PostModel = db.model(<span class="string">'blog_posts'</span>, PostSchema);</span><br></pre></td></tr></table></figure>
-
-<p>创建数据<code>Schema</code>, 根据<code>Schema</code>创建<code>Model</code>，再又<code>Model</code>可以实现增删改查等基本的数据库封装。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
+
 
 
           </div>
@@ -1079,7 +1025,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1101,7 +1047,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
